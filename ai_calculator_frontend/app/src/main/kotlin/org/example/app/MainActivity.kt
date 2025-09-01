@@ -42,6 +42,9 @@ class MainActivity : Activity() {
 
     // --- Calculator button references ---
     private lateinit var btn0: Button
+    private lateinit var btn1: Button
+    private lateinit var btn2: Button
+    private lateinit var btn3: Button
     private lateinit var btn4: Button
     private lateinit var btn5: Button
     private lateinit var btn6: Button
@@ -72,8 +75,11 @@ class MainActivity : Activity() {
         historyPanel = findViewById(R.id.historyPanel)
         historyList = findViewById(R.id.historyList)
 
-        // Calculator example button setup
+        // Calculator buttons setup: match new XML grid
         btn0 = findViewById(R.id.btn0)
+        btn1 = findViewById(R.id.btn1)
+        btn2 = findViewById(R.id.btn2)
+        btn3 = findViewById(R.id.btn3)
         btn4 = findViewById(R.id.btn4)
         btn5 = findViewById(R.id.btn5)
         btn6 = findViewById(R.id.btn6)
@@ -114,17 +120,22 @@ class MainActivity : Activity() {
             inputField.setSelection(minOf(start, end) + s.length)
         }
 
+        // Number buttons
         btn0.setOnClickListener { insertTextAtCursor("0") }
+        btn1.setOnClickListener { insertTextAtCursor("1") }
+        btn2.setOnClickListener { insertTextAtCursor("2") }
+        btn3.setOnClickListener { insertTextAtCursor("3") }
         btn4.setOnClickListener { insertTextAtCursor("4") }
         btn5.setOnClickListener { insertTextAtCursor("5") }
         btn6.setOnClickListener { insertTextAtCursor("6") }
         btn7.setOnClickListener { insertTextAtCursor("7") }
         btn8.setOnClickListener { insertTextAtCursor("8") }
         btn9.setOnClickListener { insertTextAtCursor("9") }
+        // Operator buttons: use standard calculator symbols in input logic
         btnPlus.setOnClickListener { insertTextAtCursor("+") }
         btnMinus.setOnClickListener { insertTextAtCursor("-") }
-        btnMultiply.setOnClickListener { insertTextAtCursor("*") }
-        btnDivide.setOnClickListener { insertTextAtCursor("/") }
+        btnMultiply.setOnClickListener { insertTextAtCursor("*") } // Still use '*' for calculation logic
+        btnDivide.setOnClickListener { insertTextAtCursor("/") } // Use '/' for division logic
         btnEquals.setOnClickListener { sendBtn.performClick() }
     }
 

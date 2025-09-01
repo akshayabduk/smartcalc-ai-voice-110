@@ -87,19 +87,20 @@
             app:tint="#1A73E8" />
     </LinearLayout>
 
-    <!-- Calculator example buttons below search bar (input) -->
+    <!-- Standard Calculator Button Grid -->
     <GridLayout
         android:id="@+id/calculatorButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="6"
+        android:rowCount="5"
+        android:columnCount="4"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="8dp"
         android:useDefaultMargins="true"
         android:alignmentMode="alignMargins"
         android:padding="4dp">
 
+        <!-- Row 1: 7 8 9 ÷ -->
         <Button
             android:id="@+id/btn7"
             android:layout_width="0dp"
@@ -110,7 +111,6 @@
             android:background="#FFFFFF"
             android:textColor="#1A202C"
             android:stateListAnimator="@null" />
-
         <Button
             android:id="@+id/btn8"
             android:layout_width="0dp"
@@ -121,7 +121,6 @@
             android:background="#FFFFFF"
             android:textColor="#1A202C"
             android:stateListAnimator="@null" />
-
         <Button
             android:id="@+id/btn9"
             android:layout_width="0dp"
@@ -132,7 +131,6 @@
             android:background="#FFFFFF"
             android:textColor="#1A202C"
             android:stateListAnimator="@null" />
-
         <Button
             android:id="@+id/btnDivide"
             android:layout_width="0dp"
@@ -143,29 +141,7 @@
             android:background="#F8F9FA"
             android:textColor="#1A73E8"
             android:stateListAnimator="@null" />
-
-        <Button
-            android:id="@+id/btnMultiply"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_columnWeight="1"
-            android:text="×"
-            android:textSize="20sp"
-            android:background="#F8F9FA"
-            android:textColor="#34A853"
-            android:stateListAnimator="@null" />
-
-        <Button
-            android:id="@+id/btnMinus"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_columnWeight="1"
-            android:text="−"
-            android:textSize="20sp"
-            android:background="#F8F9FA"
-            android:textColor="#F9AB00"
-            android:stateListAnimator="@null" />
-
+        <!-- Row 2: 4 5 6 × -->
         <Button
             android:id="@+id/btn4"
             android:layout_width="0dp"
@@ -176,7 +152,6 @@
             android:background="#FFFFFF"
             android:textColor="#1A202C"
             android:stateListAnimator="@null" />
-
         <Button
             android:id="@+id/btn5"
             android:layout_width="0dp"
@@ -187,7 +162,6 @@
             android:background="#FFFFFF"
             android:textColor="#1A202C"
             android:stateListAnimator="@null" />
-
         <Button
             android:id="@+id/btn6"
             android:layout_width="0dp"
@@ -198,18 +172,62 @@
             android:background="#FFFFFF"
             android:textColor="#1A202C"
             android:stateListAnimator="@null" />
-
         <Button
-            android:id="@+id/btnPlus"
+            android:id="@+id/btnMultiply"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_columnWeight="1"
-            android:text="+"
+            android:text="×"
             android:textSize="20sp"
             android:background="#F8F9FA"
-            android:textColor="#1A73E8"
+            android:textColor="#34A853"
             android:stateListAnimator="@null" />
-
+        <!-- Row 3: 1 2 3 − -->
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"
+            android:text="1"
+            android:textSize="20sp"
+            android:background="#FFFFFF"
+            android:textColor="#1A202C"
+            android:stateListAnimator="@null"/>
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"
+            android:text="2"
+            android:textSize="20sp"
+            android:background="#FFFFFF"
+            android:textColor="#1A202C"
+            android:stateListAnimator="@null"/>
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"
+            android:text="3"
+            android:textSize="20sp"
+            android:background="#FFFFFF"
+            android:textColor="#1A202C"
+            android:stateListAnimator="@null"/>
+        <Button
+            android:id="@+id/btnMinus"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"
+            android:text="−"
+            android:textSize="20sp"
+            android:background="#F8F9FA"
+            android:textColor="#F9AB00"
+            android:stateListAnimator="@null"/>
+        <!-- Row 4: 0 (centered), =, + -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"/>
         <Button
             android:id="@+id/btn0"
             android:layout_width="0dp"
@@ -219,8 +237,7 @@
             android:textSize="20sp"
             android:background="#FFFFFF"
             android:textColor="#1A202C"
-            android:stateListAnimator="@null" />
-        
+            android:stateListAnimator="@null"/>
         <Button
             android:id="@+id/btnEquals"
             android:layout_width="0dp"
@@ -230,7 +247,17 @@
             android:textSize="20sp"
             android:background="#E9ECEF"
             android:textColor="#F9AB00"
-            android:stateListAnimator="@null" />
+            android:stateListAnimator="@null"/>
+        <Button
+            android:id="@+id/btnPlus"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"
+            android:text="+"
+            android:textSize="20sp"
+            android:background="#F8F9FA"
+            android:textColor="#1A73E8"
+            android:stateListAnimator="@null"/>
     </GridLayout>
 
     <!-- Results panel -->
@@ -255,7 +282,6 @@
             android:textColor="#1A73E8"
             android:gravity="center"
             android:paddingBottom="4dp" />
-
         <TextView
             android:id="@+id/aiExplanation"
             android:layout_width="match_parent"
