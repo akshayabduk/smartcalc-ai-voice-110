@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Sample Declarative Gradle Android App</string>
+    <string name="app_name">SmartCalc AI Voice</string>
+    <string name="toggle_theme">Toggle theme</string>
+    <string name="history">History</string>
+    <string name="voice_input">Voice Input</string>
+    <string name="send_query">Send</string>
+    <string name="history_header">Calculation History</string>
+    <string name="ai_explanation_default">AI explanation for your answer will appear here.</string>
+    <string name="result_default">Result</string>
+    <string name="input_hint">Enter calculation or ask in plain English…</string>
+    <string name="settings">Settings</string>
 </resources>
