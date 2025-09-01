@@ -1,0 +1,4 @@
+{
+    "command": "./gradlew assembleDebug",
+    "working_directory": "/home/kavia/workspace/code-generation/smartcalc-ai-voice-110/ai_calculator_frontend"
+}
