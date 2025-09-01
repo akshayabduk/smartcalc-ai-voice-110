@@ -41,6 +41,7 @@ class MainActivity : Activity() {
     private lateinit var historyList: ListView
 
     // --- Calculator button references ---
+    private lateinit var btnClear: Button
     private lateinit var btn0: Button
     private lateinit var btn1: Button
     private lateinit var btn2: Button
@@ -76,6 +77,7 @@ class MainActivity : Activity() {
         historyList = findViewById(R.id.historyList)
 
         // Calculator buttons setup: match new XML grid
+        btnClear = findViewById(R.id.btnClear)
         btn0 = findViewById(R.id.btn0)
         btn1 = findViewById(R.id.btn1)
         btn2 = findViewById(R.id.btn2)
@@ -104,6 +106,7 @@ class MainActivity : Activity() {
 
     /**
      * Attach click listeners for calculator buttons to insert symbol/number into input or perform calculation.
+     * Also hooks up the 'Clear' (C/AC) button.
      */
     private fun setupCalculatorButtonListeners() {
         // Helper to insert text at cursor (replace selection, if any)
@@ -137,6 +140,13 @@ class MainActivity : Activity() {
         btnMultiply.setOnClickListener { insertTextAtCursor("*") } // Still use '*' for calculation logic
         btnDivide.setOnClickListener { insertTextAtCursor("/") } // Use '/' for division logic
         btnEquals.setOnClickListener { sendBtn.performClick() }
+
+        // Clear/Reset button: clears both input field and result/explanation
+        btnClear.setOnClickListener {
+            inputField.text.clear()
+            resultText.text = ""
+            aiExplanation.text = ""
+        }
     }
 
     /**
