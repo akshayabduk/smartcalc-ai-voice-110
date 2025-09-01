@@ -40,6 +40,20 @@ class MainActivity : Activity() {
     private lateinit var historyPanel: LinearLayout
     private lateinit var historyList: ListView
 
+    // --- Calculator button references ---
+    private lateinit var btn0: Button
+    private lateinit var btn4: Button
+    private lateinit var btn5: Button
+    private lateinit var btn6: Button
+    private lateinit var btn7: Button
+    private lateinit var btn8: Button
+    private lateinit var btn9: Button
+    private lateinit var btnPlus: Button
+    private lateinit var btnMinus: Button
+    private lateinit var btnMultiply: Button
+    private lateinit var btnDivide: Button
+    private lateinit var btnEquals: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -58,13 +72,60 @@ class MainActivity : Activity() {
         historyPanel = findViewById(R.id.historyPanel)
         historyList = findViewById(R.id.historyList)
 
+        // Calculator example button setup
+        btn0 = findViewById(R.id.btn0)
+        btn4 = findViewById(R.id.btn4)
+        btn5 = findViewById(R.id.btn5)
+        btn6 = findViewById(R.id.btn6)
+        btn7 = findViewById(R.id.btn7)
+        btn8 = findViewById(R.id.btn8)
+        btn9 = findViewById(R.id.btn9)
+        btnPlus = findViewById(R.id.btnPlus)
+        btnMinus = findViewById(R.id.btnMinus)
+        btnMultiply = findViewById(R.id.btnMultiply)
+        btnDivide = findViewById(R.id.btnDivide)
+        btnEquals = findViewById(R.id.btnEquals)
+
         // Setup UI
         calculationHistory = mutableListOf()
         isDarkTheme = false // Default: light
 
         setupTheme(isDarkTheme)
         setupListeners()
+        setupCalculatorButtonListeners()
         setupHistoryList()
+    }
+
+    /**
+     * Attach click listeners for calculator buttons to insert symbol/number into input or perform calculation.
+     */
+    private fun setupCalculatorButtonListeners() {
+        // Helper to insert text at cursor (replace selection, if any)
+        fun insertTextAtCursor(s: String) {
+            val start = inputField.selectionStart.coerceAtLeast(0)
+            val end = inputField.selectionEnd.coerceAtLeast(0)
+            inputField.text.replace(
+                minOf(start, end),
+                maxOf(start, end),
+                s,
+                0,
+                s.length
+            )
+            inputField.setSelection(minOf(start, end) + s.length)
+        }
+
+        btn0.setOnClickListener { insertTextAtCursor("0") }
+        btn4.setOnClickListener { insertTextAtCursor("4") }
+        btn5.setOnClickListener { insertTextAtCursor("5") }
+        btn6.setOnClickListener { insertTextAtCursor("6") }
+        btn7.setOnClickListener { insertTextAtCursor("7") }
+        btn8.setOnClickListener { insertTextAtCursor("8") }
+        btn9.setOnClickListener { insertTextAtCursor("9") }
+        btnPlus.setOnClickListener { insertTextAtCursor("+") }
+        btnMinus.setOnClickListener { insertTextAtCursor("-") }
+        btnMultiply.setOnClickListener { insertTextAtCursor("*") }
+        btnDivide.setOnClickListener { insertTextAtCursor("/") }
+        btnEquals.setOnClickListener { sendBtn.performClick() }
     }
 
     /**
